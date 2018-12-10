@@ -1,0 +1,32 @@
+package com.tensquare.user.config;
+
+import com.tensquare.user.interceptor.JwtInterceptor;
+import org.omg.PortableInterceptor.Interceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * @author: fanbopeng
+ * @Date: 2018/11/21 17:52
+ * @Description:
+ */
+@Configuration
+public class InterceptorConfig extends WebMvcConfigurationSupport {
+
+    @Autowired
+    private JwtInterceptor jwtInterceptor;
+
+    protected   void addInterceptions(InterceptorRegistry registry){
+
+        //注册拦截器对象和拦截的请求
+        registry.addInterceptor(jwtInterceptor)
+                    .addPathPatterns("/**")
+                    .excludePathPatterns("/login/**");
+
+
+    }
+
+}

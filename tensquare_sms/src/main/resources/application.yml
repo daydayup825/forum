@@ -1,0 +1,17 @@
+server:
+  port: 9009
+spring:
+  rabbitmq:
+    host:  192.168.25.137
+aliyun:
+  sms:
+    accessKeyId: LTAINxH1JsogJB8Y
+    accessKeySecret: FvtJO6vl8xdSTckypJXmsIRg9RZ3ZK
+    template_code: SMS_151578168
+    sign_name: 小范带你学java公众号
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true
